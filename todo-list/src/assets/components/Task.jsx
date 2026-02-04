@@ -1,4 +1,4 @@
-export default function Task({ task, isCompleted }) {
+export default function Task({ task, isCompleted, deleteTask }) {
   return (
     <div className="task-container">
       <input
@@ -6,7 +6,12 @@ export default function Task({ task, isCompleted }) {
         checked={task.completed}
         onChange={() => isCompleted(task.id)}
       />
-      <div className={task.completed ? "cross-line" : ""}>{task.text}</div>
+      <div className={`task-text ${task.completed ? "cross-line" : ""}`}>
+        {task.text}
+      </div>
+      <div className="delete-btn" onClick={() => deleteTask(task.id)}>
+        X
+      </div>
     </div>
   );
 }

@@ -31,6 +31,9 @@ export default function TaskInput() {
       });
     });
   };
+  const deleteTask = (id) => {
+    setTasks((prev) => prev.filter((t) => t.id !== id));
+  };
   return (
     <>
       <form onSubmit={handleSubmit} className="task-form">
@@ -46,7 +49,11 @@ export default function TaskInput() {
         {tasks.map((task) => {
           return (
             <li key={task.id}>
-              <Task task={task} isCompleted={isCompleted} />
+              <Task
+                task={task}
+                isCompleted={isCompleted}
+                deleteTask={deleteTask}
+              />
             </li>
           );
         })}
