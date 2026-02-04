@@ -1,8 +1,12 @@
-export default function Task({ task }) {
+export default function Task({ task, isCompleted }) {
   return (
     <div className="task-container">
-      <input type="checkbox" name="" id="" />
-      <div>{task}</div>
+      <input
+        type="checkbox"
+        checked={task.completed}
+        onChange={() => isCompleted(task.id)}
+      />
+      <div className={task.completed ? "cross-line" : ""}>{task.text}</div>
     </div>
   );
 }

@@ -8,11 +8,28 @@ export default function TaskInput() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!newTask.trim()) return;
-    setTasks((prev) => [...prev, newTask]);
+
+    const task = {
+      id: Date.now(),
+      text: newTask,
+      completed: false,
+    };
+    setTasks((prev) => [...prev, task]);
     setNewTask("");
   };
   const handleInput = (e) => {
     setNewTask(e.target.value);
+  };
+
+  const isCompleted = (id) => {
+    setTasks((prev) => {
+      return prev.map((t) => {
+        if (t.id === id) {
+          return { ...t, completed: !t.completed };
+        }
+        return t;
+      });
+    });
   };
   return (
     <>
@@ -26,10 +43,10 @@ export default function TaskInput() {
         <button type="submit">Add</button>
       </form>
       <ul className="task-list">
-        {tasks.map((task, index) => {
+        {tasks.map((task) => {
           return (
-            <li key={index}>
-              <Task task={task} />
+            <li key={task.id}>
+              <Task task={task} isCompleted={isCompleted} />
             </li>
           );
         })}
