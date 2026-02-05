@@ -56,6 +56,7 @@ body {
   gap: 10px;
   background-color: rgba(227, 231, 235, 0.493);
   margin-bottom: 2px;
+  padding: 2px;
 }
 .task-text {
   flex: 1;
@@ -63,9 +64,29 @@ body {
 .cross-line {
   text-decoration: line-through;
 }
+.edit-btn {
+  border: none;
+  background-color: rgba(227, 231, 235, 0.808);
+  padding: 5px;
+  border-radius: 3px;
+  color: green;
+  font-weight: 600;
+  cursor: pointer;
+}
+.save-btn {
+  border: none;
+  background-color: rgb(181, 131, 131);
+  padding: 5px;
+  border-radius: 3px;
+}
 .delete-btn {
   color: rgb(242, 70, 70);
   font-size: 12px;
   cursor: pointer;
   margin-right: 10px;
+}
+.edit-input {
+  border: 1px solid rgb(169, 169, 172);
+  padding: 3px;
+  flex: 1;
 }

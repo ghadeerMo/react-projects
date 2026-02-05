@@ -34,6 +34,11 @@ export default function TaskInput() {
   const deleteTask = (id) => {
     setTasks((prev) => prev.filter((t) => t.id !== id));
   };
+  const updateTask = (id, newText) => {
+    setTasks((tasks) =>
+      tasks.map((t) => (t.id === id ? { ...t, text: newText } : t)),
+    );
+  };
   return (
     <>
       <form onSubmit={handleSubmit} className="task-form">
@@ -53,6 +58,7 @@ export default function TaskInput() {
                 task={task}
                 isCompleted={isCompleted}
                 deleteTask={deleteTask}
+                updateTask={updateTask}
               />
             </li>
           );
