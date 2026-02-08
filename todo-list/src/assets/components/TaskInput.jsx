@@ -1,8 +1,7 @@
 import { useState } from "react";
 import Task from "./Task";
 
-export default function TaskInput() {
-  const [tasks, setTasks] = useState([]);
+export default function TaskInput({ tasks, setTasks }) {
   const [newTask, setNewTask] = useState("");
 
   const handleSubmit = (e) => {
